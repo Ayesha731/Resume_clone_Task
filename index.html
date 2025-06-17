@@ -79,6 +79,7 @@
         padding: 30px 20px;
         color: #616161;
         background-color: white;
+        cursor: pointer;
       }
       .hero-section {
         height: 70vh;
@@ -119,7 +120,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(4, auto);
         gap: 10px;
-        max-width: 800px;
+        width: 100%;
       }
 
       .item {
@@ -377,6 +378,35 @@
       footer p > a {
         color: #757575;
       }
+
+      #sideMenu {
+        display: none;
+      }
+      .side-menu .xmark {
+        position: fixed;
+        right: 0;
+        padding: 30px 20px;
+        color: #616161;
+        background-color: white;
+        cursor: pointer;
+        font-size: 50px;
+      }
+      .side-menu {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+      }
+      .side-menu h1 {
+        color: #757575;
+        font-size: 2rem;
+      }
+      .side-menu h1:hover {
+        color: white;
+      }
       @-webkit-keyframes scale-in-left {
         0% {
           -webkit-transform: scale(0);
@@ -559,8 +589,18 @@
     <div class="container">
       <div class="left-side"></div>
       <div class="right-side">
+        <div class="side-menu" id="sideMenu">
+          <i class="fa-solid fa-xmark fa-2xl xmark"></i>
+          <h1 class="h3-11">Home</h1>
+          <h1 class="h3-11">Portfolio</h1>
+          <h1 class="h3-11">About</h1>
+          <h1 class="h3-11">Contact</h1>
+        </div>
         <nav>
-          <i class="fa-solid fa-bars fa-2xl"></i>
+          <i
+            class="fa-solid fa-bars fa-2xl humberger"
+            onclick="toggleMenu()"
+          ></i>
         </nav>
         <div class="hero-section">
           <h1>Jane Doe</h1>
@@ -810,12 +850,6 @@
           </div>
           <p>
             Powered by
-            <!-- <a
-              href="https://www.w3schools.com/w3css/default.asp"
-              target="_blank"
-            >
-              w3.css</a
-            > -->
             <a href="#" target="_blank"> w3.css</a>
           </p>
         </footer>
@@ -836,6 +870,15 @@
           }
         });
       });
+      function toggleMenu() {
+        var menu = document.getElementById("sideMenu");
+        var cross = document.getElementsByClassName("xmark");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
