@@ -392,8 +392,9 @@
         display: none;
       }
       .xmark {
-        position: fixed;
-        right: 0;
+        position: sticky;
+        top: 0;
+        right: 20px;
         color: white;
         padding: 30px 20px;
         cursor: pointer;
@@ -418,6 +419,7 @@
         padding-top: 150px;
       }
       .heading a {
+        text-decoration: none;
       }
       .heading h1 {
         text-align: center;
@@ -907,13 +909,22 @@
       });
       function toggleMenu() {
         var menu = document.getElementById("sideMenu");
-        var cross = document.getElementsByClassName("xmark");
         if (menu.style.display === "block") {
           menu.style.display = "none";
         } else {
           menu.style.display = "block";
         }
       }
+
+      // Hide sidebar when link is clicked
+      window.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("#sideMenu a");
+        links.forEach(function (link) {
+          link.addEventListener("click", function () {
+            toggleMenu();
+          });
+        });
+      });
     </script>
   </body>
 </html>
